@@ -17,7 +17,7 @@ const useWorkSession = () => {
     const timestamp = dayjs().toISOString();
     setIsSessionActive(true);
     setStartTime(timestamp);
-    copyToClipboard(`Inicio Jornada ${dayjs(timestamp).format('YYYY-MM-DD HH:mm:ss')}`);
+    copyToClipboard(`Inicio Jornada ${dayjs(timestamp).format('h:mma')}`);
   };
 
   const pauseSession = () => {
@@ -26,20 +26,20 @@ const useWorkSession = () => {
     setIsSessionActive(false);
     setPauseTime(timestamp);
     setTotalHoursWorked((prev) => prev + hoursWorked);
-    copyToClipboard(`Pausa Jornada ${dayjs(timestamp).format('YYYY-MM-DD HH:mm:ss')}`);
+    copyToClipboard(`Pausa Jornada ${dayjs(timestamp).format('h:mma')}`);
   };
 
   const resumeSession = () => {
     const timestamp = dayjs().toISOString();
     setStartTime(timestamp);
     setIsSessionActive(true);
-    copyToClipboard(`Reanudación Jornada ${dayjs(timestamp).format('YYYY-MM-DD HH:mm:ss')}`);
+    copyToClipboard(`Reanudación Jornada ${dayjs(timestamp).format('h:mma')}`);
   };
 
   const endSession = (todos) => {
     const timestamp = dayjs().toISOString();
     const taskList = todos.map((todo, index) => `>${todo.task}`).join('\n\n');
-    const clipboardText = `Fin Jornada ${dayjs(timestamp).format('YYYY-MM-DD HH:mm:ss')}\n\n${taskList}`;
+    const clipboardText = `Fin Jornada ${dayjs(timestamp).format('h:mma')}\n\n${taskList}`;
     const hoursWorked = calculateHours(startTime, timestamp);
     copyToClipboard(clipboardText);
     setIsSessionActive(false);
