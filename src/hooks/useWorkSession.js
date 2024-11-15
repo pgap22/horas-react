@@ -5,7 +5,7 @@ import useClipboard from './useClipboard';
 const useWorkSession = () => {
   const [startTime, setStartTime] = useLocalStorage('StartWork', null);
   const [pauseTime, setPauseTime] = useLocalStorage('PauseWork', null);
-  const [isSessionActive, setIsSessionActive] = useState(false);
+  const [isSessionActive, setIsSessionActive] = useLocalStorage('SessionActive',false);
   const [totalHoursWorked, setTotalHoursWorked] = useLocalStorage('TotalHoursWorked', 0);
   const { copyToClipboard } = useClipboard();
 

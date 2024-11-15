@@ -30,7 +30,7 @@ export default function TodoApp() {
 
       <button className="bg-green-500 text-white px-4 py-2" onClick={startSession}>Iniciar Jornada</button>
       <button className="bg-yellow-500 text-white px-4 py-2" onClick={pauseSession} disabled={!isSessionActive}>Pausar</button>
-      <button className="bg-blue-500 text-white px-4 py-2" onClick={resumeSession} disabled={!isSessionActive}>Reanudar</button>
+      <button className="bg-blue-500 text-white px-4 py-2" onClick={resumeSession} disabled={isSessionActive}>Reanudar</button>
       <button className="bg-red-500 text-white px-4 py-2" onClick={handleEndSession}>Finalizar Jornada</button>
 
       <form onSubmit={handleSubmit(addTodo)} className="flex space-x-2 mt-4">
